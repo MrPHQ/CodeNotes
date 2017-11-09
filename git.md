@@ -39,7 +39,22 @@
 **git commit -a**
 
 	提交工作区自上次commit之后的变化,直接到仓库区
+## 撤销
+**git checkout [file]**
 
+	恢复暂存区的指定文件到工作区（注意区别分支操作中得 checkout 命令）
+**git checkout [commit] [file]**
+
+	恢复某个 commit 的指定文件到暂存区和工作区
+**git checkout .**
+
+	恢复暂存区的所有文件到工作区
+**git reset [file]**
+	
+	重置暂存区的指定文件，与最新的 commit 保持一致，但工作区不变
+**git reset --hard**
+
+	重置暂存区与工作区，与最新的 commit 保持一致
 ## 远程同步
 **git fetch [remote]**
 	
