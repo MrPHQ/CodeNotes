@@ -29,6 +29,39 @@
 **git mv [f] [f-renamed]**
 	
 	改名文件,并且将这个改名放入暂存区
+
+##代码提交
+**git commit -m [msg]**
+
+	提交暂存区所有文件到仓库区,并指定提交说明
+**git commit [f1] [f2] ... -m [msg]**
+
+**git commit -a**
+
+	提交工作区自上次commit之后的变化,直接到仓库区
+
+##远程同步
+**git fetch [remote]**
+	
+	下载远程仓库的所有变动到暂存区
+**git remote -v**
+
+	显示所有远程仓库
+**git remote show [remote]**
+	
+	显示某个远程仓库的信息
+**git remote add [shortname] [url]**
+
+	增加一个新的远程仓库，并命名
+**git pull [remote] [branch]**
+
+	取回远程仓库的变化，并与本地分支合并
+**git push [remote] [branch]**
+
+	上传本地指定分支到远程仓库
+**git push [remote] --force**
+
+	即使有冲突，强行推送当前分支到远程仓库
 ##查看日志
 **git status**
 
