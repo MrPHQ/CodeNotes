@@ -1,5 +1,8 @@
 
-[守护进程](#daemon)
+# 目录
+* [系统](#系统)
+    * [启动过程](#启动过程)
+    * [守护进程](#守护进程)
 
 # 系统
 ## 启动过程
@@ -54,7 +57,6 @@
 10. 执行/bin/login程序，进入登录状态
         
 ## 守护进程
-<span id="daemon"></span>
 [转载](http://cdeveloper.cn/posts/daemon "http://cdeveloper.cn/posts/daemon")
 
 **什么是守护进程**
