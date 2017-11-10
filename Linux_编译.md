@@ -1,8 +1,5 @@
 
-error: ‘umask’ was not declared in this scope
-
-  #include <sys/stat.h>
-  
-error: ‘rlimit’ was not declared in this scope
-
-  #include <sys/resource.h>
+**xx not declared in this scope**
+    
+    error: ‘umask’ was not declared in this scope -> #include <sys/stat.h>
+    error: ‘rlimit’ was not declared in this scope -> #include <sys/resource.h>
