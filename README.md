@@ -1,10 +1,10 @@
 # CodeNotes
 我的记录
 
-# GIT
-[GIT](git.md)
-
-# Linux
-[系统应用](Linux_系统应用.md)
-
-[编译](Linux_编译.md)
+# 目录
+* Git  
+    * [Git命令](Git/Git命令.md)  
+* Linux  
+    * [系统原理和应用](Linux/系统原理和应用.md)  
+    * [编程](Linux/编程.md)  
+    * [编译](Linux/编译.md)  
