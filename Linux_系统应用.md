@@ -1,3 +1,6 @@
+
+[守护进程](#daemon)
+
 # 系统
 ## 启动过程
 
@@ -49,5 +52,65 @@
 
         rc.local就是在一切初始化工作后，Linux留给用户进行个性化的地方。你可以把你想设置和启动的东西放到这里。
 10. 执行/bin/login程序，进入登录状态
-        
+        
+## 守护进程
+<span id="daemon"></span>
+[转载](http://cdeveloper.cn/posts/daemon "http://cdeveloper.cn/posts/daemon")
+
+**什么是守护进程**
+
+        守护进程可以简单的理解为后台的服务进程，很多上层的服务器都是以守护进程为基础开发的。
+        例如 Linux 上运行的 Apache 服务器，Android 系统的 Service 服务，它们的底层都由 Linux 的守护进程提供服务。
+**编写守护进程的 6 个步骤**
+
+        1. 重新设置 umask(0)
+        2. 执行 fork 并脱离父进程
+        3. 重启 session 会话
+        4. 改变当前工作目录
+        5. 关闭文件描述符
+        6. 固定文件描述符 0, 1, 2 到 /dev/null
+**示例**
+```c++
+void daemon_init(void) {
+ 	// 1. 重新设置 umask
+	umask(0); 
+	
+	// 2. 调用 fork 并脱离父进程
+	pid_t pid = fork()  ; 
+	
+	if(pid < 0)
+		exit(1); 
+	else if(pid > 0)
+		exit(0);
+
+	// 3. 重启 session 会话
+	setsid();
+
+	// 4. 改变工作目录
+	chdir("/"); 
+
+	// 5. 得到并关闭文件描述符
+	struct rlimit rl;
+	getrlimit(RLIMIT_NOFILE, &rl);
+	if (rl.rlim_max == RLIM_INFINITY)
+		rl.rlim_max = 1024;
+	for(int i = 0; i < rl.rlim_max; i++)	
+		close(i); 
+	
+	// 6. 不接受标准输入，输入，错误
+	int fd0 = open("/dev/null", O_RDWR);
+	int fd1 = dup(0);
+	int fd2 = dup(0);	 
+}
+```
+**让守护进程开机自启动**
+
+每个系统启动级别的守护进程分别在 /etc/rcN.d 下，比如我的图形界面的启动级别是 5，那么在这个启动级别下自动运行和禁止启动守护进程都在 /etc/rc5.d 下.这里我的 ubuntu 系统的守护进程目录是 /etc/rcN.d
+
+知道了守护进程的位置，现在就可以把 printlg 放在 /etc/rc5.d/ 下，并且还要改名称，因为系统需要根据指定的名称来使用 for 循环来启动或者关闭每个程序，命名规则如下：
+S[num][name]：启动守护进程 name，例如：S01printlg
+K[num][name]：禁止启动守护进程 name，例如：K01printlg
+```
+ln -s /mnt/my_proj/linux/daemon/printlg ./S01printlg
+```
         
