@@ -1,7 +1,9 @@
 # CodeNotes
-我的记录
+记录点点滴滴
 
 # 目录
+* Knowledge
+	* [字符编码](Knowledge/字符编码.md)
 * Git
 	* [Git命令](Git/Git命令.md)
 * Python
