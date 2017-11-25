@@ -18,6 +18,7 @@
 **git add .**
 	
 	添加当前目录的所有文件到暂存区
+	git add -u -> 将当前已跟踪且已修改文件更新
 
 **git rm [f1][f2]...**
 
@@ -33,6 +34,7 @@
 **git commit -m [msg]**
 
 	提交暂存区所有文件到仓库区,并指定提交说明
+	rm file -> git commit -am [msg]**
 **git commit [f1] [f2] ... -m [msg]**
 
 **git commit -a**
