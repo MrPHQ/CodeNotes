@@ -72,6 +72,7 @@
 **git pull [remote] [branch]**
 
 	取回远程仓库的变化，并与本地分支合并
+	在默认模式下，git pull是git fetch后跟git merge FETCH_HEAD的缩写	
 **git push [remote] [branch]**
 
 	上传本地指定分支到远程仓库
