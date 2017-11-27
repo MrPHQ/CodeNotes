@@ -18,3 +18,5 @@
 * Databases
 	* [MySQL]
 		* [知识点](Databases/MySQL/知识点.md)
+* GDB
+	* [gdb](GDB/gdb.md)
