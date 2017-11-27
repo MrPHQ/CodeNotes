@@ -2,6 +2,10 @@
 记录点点滴滴
 
 # 目录
+* Program language
+	* [C]
+		* [语法](ProgramLanguage/C/语法.md)
+		* [注意事项](ProgramLanguage/C/注意事项.md)
 * Knowledge
 	* [字符编码](Knowledge/字符编码.md)
 * Git
