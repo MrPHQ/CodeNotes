@@ -17,6 +17,7 @@
 	* [系统原理和应用](Linux/系统原理和应用.md)
 	* [编程](Linux/编程.md)
 	* [编译](Linux/编译.md)
+	* [同步](Linux/同步.md)
 * Regex
 	* [正则表达式](Regex/正则表达式.md)
 * Databases
