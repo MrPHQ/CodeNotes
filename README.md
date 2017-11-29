@@ -25,3 +25,5 @@
 		* [知识点](Databases/MySQL/知识点.md)
 * GDB
 	* [gdb](GDB/gdb.md)
+* SQL
+	* [注意事项](SQL/注意事项.md)
