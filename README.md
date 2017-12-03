@@ -11,6 +11,7 @@
 * Git
 	* [Git命令](Git/Git命令.md)
 * Python
+	* [语法](Python/语法.md)
 	* [注意事项](Python/注意事项.md)
 	* [字符串](Python/字符串.md)
 * Linux
