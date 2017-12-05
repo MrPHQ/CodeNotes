@@ -6,6 +6,9 @@
 	* [C]
 		* [语法](ProgramLanguage/C/语法.md)
 		* [注意事项](ProgramLanguage/C/注意事项.md)
+	* [CPP]
+		* [语法](ProgramLanguage/CPP/语法.md)
+		* [模版](ProgramLanguage/CPP/模版.md)
 * Knowledge
 	* [字符编码](Knowledge/字符编码.md)
 * Git
