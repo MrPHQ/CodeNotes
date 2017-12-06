@@ -4,7 +4,7 @@
 [log4cplus](https://www.cnblogs.com/xiaouisme/archive/2012/07/29/2613908.html)
 
 ## 编译动态链接库和静态链接库
-[转载](https://www.cnblogs.com/nufangrensheng/p/3578784.html)
+[转载](https://www.cnblogs.com/nufangrensheng/p/3578784.html)  
 1.生成动态链接库：
 ```
 g++ -m32 hello1.cpp hello2.cpp -fPIC -shared -o ../lib/linux32/libhello.so 
