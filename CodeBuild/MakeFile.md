@@ -34,3 +34,15 @@ g++ -m32 hello2.cpp -o hello2 -I/lib/linux32/  lhello -Wl,--rpath=/lib/linux32/
 ```
 export LD_LIBRARY_PATH=/lib/linux32/  
 ```
+## 同时使用动态和静态链接
+gcc的-static选项可以使链接器执行静态链接。但简单地使用-static显得有些’暴力’，因为他会把命令行中-static后面的所有-l指明的库都静态链接，更主要的是，有些库可能并没有提供静态库（.a），而只提供了动态库（.so）。这样的话，使用-static就会造成链接错误。  
+之前的链接选项大致是这样的，
+```
+CORE_LIBS="$CORE_LIBS -L/usr/lib64/mysql -lmysqlclient -lz -lcrypt -lnsl -lm -L/usr/lib64 -lssl -lcrypto"
+```
+修改过是这样的，
+```
+CORE_LIBS="$CORE_LIBS -L/usr/lib64/mysql -Wl,-Bstatic -lmysqlclient \ -Wl,-Bdynamic -lz -lcrypt -lnsl -lm -L/usr/lib64 -lssl -lcrypto"
+```
+其中用到的两个选项：-Wl,-Bstatic和-Wl,-Bdynamic。这两个选项是gcc的特殊选项，它会将选项的参数传递给链接器，作为链接器的选项。比如-Wl,-Bstatic告诉链接器使用-Bstatic选项，该选项是告诉链接器，对接下来的-l选项使用静态链接；-Wl,-Bdynamic就是告诉链接器对接下来的-l选项使用动态链接。  
+值得注意的是对-static的描述：-static和-shared可以同时存在，这样会创建共享库，但该共享库引用的其他库会静态地链接到该共享库中。
