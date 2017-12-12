@@ -1,5 +1,5 @@
 # 目录
-  * [本地socket](#本地socket)
+  * [本地socket](#本地socket)
   * [共享内存](#共享内存)
   
 ## 本地socket
