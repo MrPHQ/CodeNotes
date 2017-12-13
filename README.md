@@ -54,6 +54,6 @@
 	* [JavaScript]
 		* [知识](WEB/JavaScript/知识.md)
 * GNU
-	* [fileutils](GNU/fileutils.md)
-	* [Shellutils](GNU/Shellutils.md)
-	* [textutils](GNU/textutils.md)
+	* [文件](GNU/fileutils.md)
+	* [Shell](GNU/Shellutils.md)
+	* [文本](GNU/textutils.md)
