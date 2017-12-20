@@ -53,6 +53,8 @@
 		* [介绍](WEB/Django/介绍.md)
 	* [JavaScript]
 		* [知识](WEB/JavaScript/知识.md)
+		* [语法](WEB/JavaScript/语法.md)
+		* [闭包](WEB/JavaScript/闭包.md)
 * GNU
 	* [文件](GNU/fileutils.md)
 	* [Shell](GNU/Shellutils.md)
