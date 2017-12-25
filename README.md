@@ -11,6 +11,7 @@
 		* [模版](ProgramLanguage/CPP/模版.md)
 		* [文件](ProgramLanguage/CPP/文件.md)
 		* [STL](ProgramLanguage/CPP/stl.md)
+		* [知识点](ProgramLanguage/CPP/知识点.md)
 * Knowledge
 	* [字符编码](Knowledge/字符编码.md)
 * Git
