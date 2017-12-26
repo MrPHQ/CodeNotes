@@ -16,6 +16,8 @@
 	* [字符编码](Knowledge/字符编码.md)
 * Git
 	* [Git命令](Git/Git命令.md)
+* SVN
+	* [知识点](SVN/知识点.md)
 * Python
 	* [语法](Python/语法.md)
 	* [注意事项](Python/注意事项.md)
