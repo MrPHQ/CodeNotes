@@ -61,6 +61,8 @@
 		* [语法](WEB/JavaScript/语法.md)
 		* [闭包](WEB/JavaScript/闭包.md)
 		* [DOM](WEB/JavaScript/DOM.md)
+	* [Tinyhttpd](WEB/Tinyhttpd)
+		* [知识](WEB/Tinyhttpd/知识点.md)
 * GNU
 	* [文件](GNU/fileutils.md)
 	* [Shell](GNU/Shellutils.md)
