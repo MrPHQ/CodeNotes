@@ -74,3 +74,5 @@
 	* [libuv](NetWork/libuv.md)
 * 技术网站
 	* [目录](blog/blog.md)
+* 设计模型
+	* [观察者模式](#DesignModel/观察者模式.md)
