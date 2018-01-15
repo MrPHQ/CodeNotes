@@ -76,3 +76,5 @@
 	* [目录](blog/blog.md)
 * 设计模型
 	* [观察者模式](DesignModel/观察者模式.md)
+* 算法
+	* [目录](algorithm/目录.md)
