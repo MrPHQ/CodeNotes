@@ -76,6 +76,7 @@
 * 技术网站
 	* [目录](blog/blog.md)
 * 设计模型
+	* [目录](DesignModel/目录.md)
 	* [观察者模式](DesignModel/观察者模式.md)
 * 算法
 	* [目录](algorithm/目录.md)
