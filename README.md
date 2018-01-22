@@ -82,3 +82,6 @@
 	* [目录](algorithm/目录.md)
 * 软件架构
 	* [知识点](SoftwareArchitecture/知识点.md)
+* 工具
+	* [JupyterNotebook](tools/JupyterNotebook)
+		* [知识点](tools/JupyterNotebook/知识点.md)
