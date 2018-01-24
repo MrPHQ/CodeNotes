@@ -1,8 +1,9 @@
 # 目录
 
-* [FOR](#FOR)
+* [命令:FOR](#命令:FOR)
+* [读取文件并字符串替换](#读取文件并字符串替换)
 
-## FOR
+## 命令:FOR
 
 Delims和Tokens总结
 ****
@@ -144,3 +145,39 @@ FOR /F "tokens=x,y,m-n" %%I IN (Command1) DO Command2
     Tokens=*表示删除每行前面的空格。忽略行首的所有空格。 
     tokens=m*提取第m列以后的所有字符，星号表示剩余的字符。 
     tokens=m,*提取第m列以后的所有字符，星号表示剩余的字符
+
+## 读取文件并字符串替换
+
+从foxmail里导出的文件里取出需要的内容, 放入到另一个文件中, 并替换相应的字符为分号, 方便excel直接打开
+注意:
+1. rem: 为注释当前行
+2. ^: 为转义符号
+3. %%a: for循环中变量赋值的写法
+4. !a!: 程序执行过程中变量的赋值会延迟, 用感叹号以及第二行的 setlocal 指令来消除这种延迟
+5. !a:x=y!: 字符串替换的写法, 将变量a中的x替换为y, 如果x是特殊字符需要用^转义, 如果不写y就是将x替换为空
+6. 直接输出并追加到文件xxx.log中用文本编辑器打开会有一些乱码, 但是汉字大都没问题,
+
+如果直接用Excel打开中文就可能出现乱码
+
+脚本源代码:
+```bat
+@echo off 
+setlocal EnableDelayedExpansion
+rem echo %cd%
+
+for %%s in (*.eml) do (
+    rem findstr  "log_user_trade" %%s >> stat.log
+    echo %%s
+    findstr  "log_user_trade" %%s >tmp.log rem 匹配出需要的行
+    set /p line=<tmp.log rem 放入临时文件中
+    set a=!line:^^=;! rem 替换字符,将^替换为; ^在bat脚本中是转义字符的意思
+    set b=!a:^|=;!
+    set c=!b:^@@=;!
+    set d=!c:^&quot;=! rem 将字符串&quot;替换为空
+    set e=!d:^&gt;=!
+    set f=!e:^<td^>=!
+    echo !f:^</td^>=! >> stat.log
+) 
+echo complete
+pause
+```
