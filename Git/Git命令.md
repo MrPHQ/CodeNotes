@@ -79,6 +79,11 @@
 **git push [remote] --force**
 
 	即使有冲突，强行推送当前分支到远程仓库
+	
+git log ...
+****
+
+
 ## 查看日志
 **git status**
 
