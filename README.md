@@ -70,6 +70,7 @@
 * Windows
 	* [多线程](Windows/多线程.md)
 	* [知识点](Windows/知识点.md)
+	* [bat](Windows/bat.md)
 * 网络编程
 	* [知识点](NetWork/socket.md)
 	* [libuv](NetWork/libuv.md)
