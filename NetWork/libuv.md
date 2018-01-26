@@ -101,3 +101,70 @@ typedef struct uv_process_options_s {
   uv_gid_t gid;
 } uv_process_options_t;
 ```
+
+uv_stream_t
+****
+uv_stream_t提供一个抽象的双工通信通道。uv_stream_t是抽象类型，libuv提供3种流的实现：uv_tcp_t,uv_pipe_t以及uv_tty_t
+```c
+typedef struct uv_stream_s uv_stream_t;
+struct uv_stream_s {
+  UV_HANDLE_FIELDS//uv_handle_t成员，此处不再展开
+  //UV_STREAM_FIELDS宏展开如下：
+  #define UV_STREAM_FIELDS                                                      
+  /* number of bytes queued for writing */                                    
+  size_t write_queue_size;//需要写入的数据量                                                   
+  uv_alloc_cb alloc_cb;//内存分配回调函数                                    
+  uv_read_cb read_cb;//读取数据回调函数                                                         
+  /* private */                                                               
+  //UV_STREAM_PRIVATE_FIELDS宏展开如下：
+  unsigned int reqs_pending;                                                 
+  int activecnt;//基于此流的活动请求计数                                                            
+  uv_read_t read_req;//读操作请求                                                        
+  union {                                                                     
+    struct 
+    {
+     unsigned int write_reqs_pending;                                           
+     uv_shutdown_t* shutdown_req;
+    } conn;                              
+    struct   
+    { 
+      uv_connection_cb connection_cb; 
+    } serv;                             
+  } stream;
+};
+```
+**相关请求类型**
+
+uv_connect_t，连接请求
+```c
+struct uv_connect_s {
+  UV_REQ_FIELDS//uv_req_t的数据，此处不再展开
+  uv_connect_cb cb;//连接回调
+  uv_stream_t* handle;//
+  //UV_CONNECT_PRIVATE_FIELDS宏为空
+};
+```
+uv_shutdown_t，关闭请求
+```c
+struct uv_shutdown_s {
+  UV_REQ_FIELDS//uv_req_t的数据，此处不再展开
+  uv_stream_t* handle;
+  uv_shutdown_cb cb;//关闭回调
+  //UV_SHUTDOWN_PRIVATE_FIELDS宏为空
+};
+```
+uv_write_t，写操作请求
+```c
+struct uv_write_s {
+  UV_REQ_FIELDS//uv_req_t的数据，此处不再展开
+  uv_write_cb cb;//写回调
+  uv_stream_t* send_handle;//发送对象
+  uv_stream_t* handle;//
+  //UV_WRITE_PRIVATE_FIELDS宏展开：
+  int ipc_header;                                                             
+  uv_buf_t write_buffer;//写内容                                                     
+  HANDLE event_handle;                                                       
+  HANDLE wait_handle;
+};
+```
+以上三种请求都可以说是uv_req_t的子类，内部都有uv_stream_t对象的指针
