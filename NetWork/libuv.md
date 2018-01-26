@@ -225,15 +225,15 @@ struct uv_fs_event_s {
   /* private */
   char* path;//路径，utf8编码，由libuv申请、释放
   //UV_FS_EVENT_PRIVATE_FIELDS展开如下：
-  struct uv_fs_event_req_s {                                                  
-    UV_REQ_FIELDS                                                             
-  } req;                 //请求                                                         
-  HANDLE dir_handle;//文件夹句柄，通过CreateFileW获取                                                          
-  int req_pending;//表计量，判断是否开始监听文件                                                           
-  uv_fs_event_cb cb;//回调函数                                                          
-  WCHAR* filew;/utf16文件名，由libuv申请、释放                                                                   
-  WCHAR* short_filew;//utf16编码的短路径文件名，由libuv申请、释放                                                       
-  WCHAR* dirw;//utf16编码的文件夹路径，由libuv申请、释放                                                             
+  struct uv_fs_event_req_s {  
+    UV_REQ_FIELDS 
+  } req;                 //请求 
+  HANDLE dir_handle;//文件夹句柄，通过CreateFileW获取 
+  int req_pending;//表计量，判断是否开始监听文件 
+  uv_fs_event_cb cb;//回调函数 
+  WCHAR* filew;/utf16文件名，由libuv申请、释放  
+  WCHAR* short_filew;//utf16编码的短路径文件名，由libuv申请、释放
+  WCHAR* dirw;//utf16编码的文件夹路径，由libuv申请、释放                                          
   char* buffer;//存放监控返回的信息，由libuv申请、释放
 };
 ```
@@ -252,6 +252,30 @@ uv_fs_event_t提供了对于文件的监控（文件修改、重命名等），�
 
 ## Barriers
 当某一线程需要等待其他一些线程任务完成之后才能继续运行时，可以使用barrier。 
+```cpp
+int uv_barrier_wait(uv_barrier_t* barrier) {
+  int serial_thread;
+  uv_mutex_lock(&barrier->mutex);//进入临界区
+  if (++barrier->count == barrier->n) {//最后一个任务
+    uv_sem_wait(&barrier->turnstile2);//等待第二个信号量
+    uv_sem_post(&barrier->turnstile1);//释放第一个信号量
+  }
+  uv_mutex_unlock(&barrier->mutex);
+  uv_sem_wait(&barrier->turnstile1);//等待第一个信号量
+  uv_sem_post(&barrier->turnstile1);//释放第一个信号量
+  uv_mutex_lock(&barrier->mutex);//进入临界区
+  serial_thread = (--barrier->count == 0);
+  if (serial_thread) {//最后一个任务
+    uv_sem_wait(&barrier->turnstile1);/等待第一个
+    uv_sem_post(&barrier->turnstile2);//释放第二个
+  }
+  uv_mutex_unlock(&barrier->mutex);
+
+  uv_sem_wait(&barrier->turnstile2);//等待第二个
+  uv_sem_post(&barrier->turnstile2);//释放第二个
+  return serial_thread;
+}
+```
 流程如下： 
 1. 所有的相关线程都调用uv_barrier_wait等待同一个uv_barrier_t，此时除了最后一个，都会在等待第一个信号量的地方阻塞。 
 2. 最后一个调用uv_barrier_wait的线程会等待第二个信号量，此时第二个信号量没有资源，然后释放第一个信号量。 
