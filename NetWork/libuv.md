@@ -13,7 +13,8 @@
 
 [官网](http://libuv.org/)
 
-[链接](http://cnodejs.org/topic/577a6d8777471bfb0555e97e)
+[链接](http://cnodejs.org/topic/577a6d8777471bfb0555e97e)  
+[学习笔记](http://blog.csdn.net/paohui0134/article/category/6266738/1)
 
 ## 知识点
 三种监视器
