@@ -2,6 +2,7 @@
 
 * [命令:FOR](#命令:FOR)
 * [读取文件并字符串替换](#读取文件并字符串替换)
+* [函数](#函数)
 
 ## 命令:FOR
 
@@ -181,3 +182,6 @@ for %%s in (*.eml) do (
 echo complete
 pause
 ```
+
+## 函数
+[http://blog.csdn.net/xiaoding133/article/details/39252357](http://blog.csdn.net/xiaoding133/article/details/39252357)
