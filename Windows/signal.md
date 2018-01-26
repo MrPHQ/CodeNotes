@@ -35,3 +35,42 @@ static int b_exit_on_ctrl_c = 0;
 #define SIGBREAK   21      //Ctrl-Break sequence(Ctrl+Break中断)
 #define SIGABRT    22      // abnormal termination triggered by abort call(Abort)
 ```
+
+Windows Signal Handling
+****
+信号处理函数用于设置信号处理的Handler。
+```c
+#include <signal.h>
+
+typedef void (*sighandler_t)(int);
+sighandler_t signal(int signum, sighandler_t handler);
+```
+signal用于设置信号的捕捉函数。signal如果调用成功，返回以前该信号的处理函数的地址，否则返回 SIG_ERR。
+* signum：要捕捉的信号，
+* handler： 函数指针，表示要对该信号进行捕捉的函数，该参数也可以是SIG_DEF(表示交由系统缺省处理，无需理会)或SIG_IGN(表示忽略掉该信号而不做任何处理)。
+sighandler_t是信号捕捉函数，由signal函数注册，注册以后，在整个进程运行过程中均有效，并且对不同的信号可以注册同一个信号捕捉函数。唯一的传入参数表示信号值。
+
+示例 MSDN
+****
+```cpp
+// Use signal to attach a signal handler to the abort routine
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <tchar.h>
+
+void SignalHandler(int signal)
+{
+    printf("Application aborting...\n");
+}
+
+int main()
+{
+    typedef void (*SignalHandlerPointer)(int);
+
+    SignalHandlerPointer previousHandler;
+    previousHandler = signal(SIGABRT, SignalHandler);
+    
+    abort();
+}
+```
