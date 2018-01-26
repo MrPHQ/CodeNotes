@@ -168,3 +168,45 @@ struct uv_write_s {
 };
 ```
 以上三种请求都可以说是uv_req_t的子类，内部都有uv_stream_t对象的指针
+
+uv_tcp_t
+****
+TCP handle type.
+```c
+typedef struct uv_tcp_s uv_tcp_t;
+struct uv_tcp_s {
+  UV_HANDLE_FIELDS//uv_handle_t的成员
+  UV_STREAM_FIELDS//stream的成员
+  //UV_TCP_PRIVATE_FIELDS展开如下：
+  SOCKET socket;                                                              
+  int delayed_error;                                                          
+  union {                                                                    
+    struct {
+     uv_tcp_accept_t* accept_reqs;//接受请求列表                                              
+     unsigned int processed_accepts;                                           
+     uv_tcp_accept_t* pending_accepts;//等待处理的接受请求 
+     LPFN_ACCEPTEX func_acceptex;//accetpex的函数指针
+    } serv;                                     
+    struct {
+     uv_buf_t read_buffer; //读取数据的缓存
+     LPFN_CONNECTEX func_connectex;//connectex函数指针
+    } conn;                                
+  } tcp;
+};
+```
+**相关的请求**
+```c
+  typedef struct uv_tcp_accept_s {                                          
+    UV_REQ_FIELDS//uv_req_t的成员                                                        
+    SOCKET accept_socket;                                                
+    char accept_buffer[sizeof(struct sockaddr_storage) * 2 + 32];        
+    HANDLE event_handle;                                                 
+    HANDLE wait_handle;                                                  
+    struct uv_tcp_accept_s* next_pending;                              
+  } uv_tcp_accept_t;
+```
+
+```
+
+
+
