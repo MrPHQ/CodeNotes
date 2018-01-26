@@ -206,7 +206,27 @@ struct uv_tcp_s {
   } uv_tcp_accept_t;
 ```
 
+uv_fs_event_t 
+****
+FS Event handle type.
+```c
+typedef struct uv_fs_event_s uv_fs_event_t;
+struct uv_fs_event_s {
+  UV_HANDLE_FIELDS//uv_handle_t的成员
+  /* private */
+  char* path;//路径，utf8编码，由libuv申请、释放
+  //UV_FS_EVENT_PRIVATE_FIELDS展开如下：
+  struct uv_fs_event_req_s {                                                  
+    UV_REQ_FIELDS                                                             
+  } req;                 //请求                                                         
+  HANDLE dir_handle;//文件夹句柄，通过CreateFileW获取                                                          
+  int req_pending;//表计量，判断是否开始监听文件                                                           
+  uv_fs_event_cb cb;//回调函数                                                          
+  WCHAR* filew;/utf16文件名，由libuv申请、释放                                                                   
+  WCHAR* short_filew;//utf16编码的短路径文件名，由libuv申请、释放                                                       
+  WCHAR* dirw;//utf16编码的文件夹路径，由libuv申请、释放                                                             
+  char* buffer;//存放监控返回的信息，由libuv申请、释放
+};
 ```
-
-
+uv_fs_event_t提供了对于文件的监控（文件修改、重命名等），可以看出，实际上是监视的文件所在的文件夹。
 
