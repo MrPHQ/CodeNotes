@@ -192,6 +192,17 @@ pause
 ## 判断语句
 [https://www.cnblogs.com/DswCnblog/p/5435231.html](https://www.cnblogs.com/DswCnblog/p/5435231.html)
 
+```bat
+@echo off
+Setlocal enabledelayedexpansion
+
+set file="C:\abc.bat"
+if exist %file% (            ::注意这里else后的空格
+    echo file is exists
+)else (                      ::注意这里else要和if在同一行，并且else后要有空格
+    echo file is not exists
+)
+```
 ## 特殊字符
 * ^
 
