@@ -17,6 +17,8 @@
 [链接](http://cnodejs.org/topic/577a6d8777471bfb0555e97e)  
 [学习笔记](http://blog.csdn.net/paohui0134/article/category/6266738/1)
 
+[4个特殊句柄](http://www.cnblogs.com/watercoldyi/p/5682344.html)
+
 ## 知识点
 三种监视器
 ****
