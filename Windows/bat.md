@@ -208,3 +208,7 @@ if exist %file% (            ::注意这里else后的空格
 
   `^`是批处理中的转义符，用于转义特殊字符为普通字符。
   这个FOR命令是将`'ipconfig^|find "IP Address"'`中间的字符当作命令来执行，而其中的 `|` 不是个普通字符，而是个命令符号，所以需要用转义符号 `^`把 `|` 转义成普通字符，这样 `'ipconfig^|find "IP Address"'`里面就全是普通字符了，`FOR`命令才能正确执行。
+
+## 字符串
+***
+[链接](http://www.jb51.net/article/52744.htm)
