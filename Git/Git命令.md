@@ -11,6 +11,7 @@
 
 	下载一个项目和它的整个代码历史
 	如: git clone git@github.com:xx/xx.git
+克隆分支[链接](https://www.cnblogs.com/nylcy/p/6569284.html)
 
 ## 添加/删除文件
 **git add [f1][f2]...**
