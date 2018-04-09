@@ -4,3 +4,5 @@
 
 
 [IHTMLDocument2](https://www.cnblogs.com/endv/p/5983110.html)
+
+[IWebBrowser2](https://blog.csdn.net/aasmfox/article/details/7016236)
