@@ -31,3 +31,30 @@ CefLifeSpanHandler，回调类，主要用来处理与浏览器生命周期相�
 CefLoadHandler，回调类，主要用来处理浏览器页面加载状态的变化，如页面加载开始，完成，出错等。  
 CefRenderHandler，回调类，主要用来处在在窗口渲染功能被关闭的情况下的事件。  
 CefRequestHandler，回调类，主要用来处理与浏览器请求相关的的事件，如资源的的加载，重定向等。  
+
+## CefBrowserHost
+***
+CefBrowserHost: 该类在浏览器窗口来看代表了 `browser` 进程，同时也暴露了与浏览器窗口相关的接口，该类的方法只能在 `browser` 进程中调用，但可以在 `browser` 进程的任意线程中被调用。该类的主要方法如下：
+```cpp
+  static bool CreateBrowser(const CefWindowInfo& windowInfo,
+                            CefRefPtr<CefClient> client,
+                            const CefString& url,
+                            const CefBrowserSettings& settings,
+                            CefRefPtr<CefRequestContext> request_context);
+```
+请求关闭浏览器对象。该函数被调用是会触发 JS 'onbeforeunload' 事件，如果参数 force_close为 false，并且提供了 onbeforeunload 事件的回调函数，则提示用户是否关闭浏览器，此时用户可以选取取消操作。如果 force_close为 true，则直接关闭浏览器。
+```cpp
+public virtual void CloseBrowser(bool force_close)= 0;
+```
+获取浏览器对象(在 CefBrowser 类中可以通过调用 GetHost() 获取与之对应的 CefBrowserHost)
+```cpp
+public virtual CefRefPtr< CefBrowser > GetBrowser()= 0;
+```
+获取 CefClient 对象
+```cpp
+public virtual CefRefPtr< CefClient > GetClient()= 0;
+```
+获取该浏览器对象的窗口句柄，如果是弹出窗口，则返回 NULL。
+```cpp
+public virtual CefWindowHandle GetOpenerWindowHandle()= 0;
+```
