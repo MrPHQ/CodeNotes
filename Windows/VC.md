@@ -5,3 +5,5 @@
 
 
 [窗口透明](https://www.cnblogs.com/just-bg/p/3788412.html)
+
+[GDI+](https://blog.csdn.net/harvic880925/article/details/9023329)
