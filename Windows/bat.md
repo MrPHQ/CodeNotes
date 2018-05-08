@@ -6,7 +6,10 @@
 * [判断语句](#判断语句)
 * [特殊字符](#特殊字符)
 
+
 ## 命令:FOR
+
+[批处理for命令使用指南.FOR 参数详解](http://www.jb51.net/article/72077.htm)
 
 Delims和Tokens总结
 ****
