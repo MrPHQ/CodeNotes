@@ -16,3 +16,5 @@
 [Google Maps API V3 之绘图库](https://blog.csdn.net/manbufenglin/article/details/8643093)
 
 [API](https://developers.google.cn/maps/documentation/javascript/reference)
+
+[自定义google maps 的infowindow](http://juliana-only.iteye.com/blog/701955)
