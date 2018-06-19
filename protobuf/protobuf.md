@@ -6,3 +6,5 @@
 [link](https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html)
 
 [Protocol Buffer技术详解(语言规范)](https://blog.csdn.net/williamwanglei/article/details/8569586)
+
+[动态使用proto文件](https://blog.csdn.net/y_xianjun/article/details/9086107)
