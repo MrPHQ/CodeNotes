@@ -15,3 +15,5 @@ capacity是指在发生realloc前能允许的最大元素数，即预分配的�
 
 
 [哈希表 hash_map](https://blog.csdn.net/ddkxddkx/article/details/6555754)
+
+[C++ stringstream](https://blog.csdn.net/joeblackzqq/article/details/7032703)
