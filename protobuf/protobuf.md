@@ -14,3 +14,9 @@
 [玩转Protocol Buffers](https://blog.csdn.net/cyblueboy83/article/details/44859353)
 
 [Protobuf动态解析那些事儿](https://www.cnblogs.com/jacksu-tencent/p/3447310.html)
+
+[Protobuf-Descriptor相关类](https://blog.csdn.net/felix_xw/article/details/80537728)
+
+[一种自动反射消息类型的 Google Protobuf 网络传输方案](http://www.cnblogs.com/Solstice/archive/2011/04/03/2004458.html)
+
+[深入Protobuf源码－Descriptor、Message、RPC框架](https://blog.csdn.net/zhang0558/article/details/53780643)
