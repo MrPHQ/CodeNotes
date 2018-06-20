@@ -22,3 +22,5 @@
 [深入Protobuf源码－Descriptor、Message、RPC框架](https://blog.csdn.net/zhang0558/article/details/53780643)
 
 [protobuf的反射机制](https://www.cnblogs.com/swey/p/4733638.html)
+
+[google protobuf 反射机制学习笔记](https://blog.csdn.net/boshuzhang/article/details/66969353)
