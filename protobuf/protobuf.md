@@ -20,3 +20,5 @@
 [一种自动反射消息类型的 Google Protobuf 网络传输方案](http://www.cnblogs.com/Solstice/archive/2011/04/03/2004458.html)
 
 [深入Protobuf源码－Descriptor、Message、RPC框架](https://blog.csdn.net/zhang0558/article/details/53780643)
+
+[protobuf的反射机制](https://www.cnblogs.com/swey/p/4733638.html)
