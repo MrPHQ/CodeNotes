@@ -24,3 +24,5 @@
 [protobuf的反射机制](https://www.cnblogs.com/swey/p/4733638.html)
 
 [google protobuf 反射机制学习笔记](https://blog.csdn.net/boshuzhang/article/details/66969353)
+
+[protobuf之string bytes的区别](https://blog.csdn.net/cscrazybing/article/details/78061475)
