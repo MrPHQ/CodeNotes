@@ -18,3 +18,5 @@
 [API](https://developers.google.cn/maps/documentation/javascript/reference)
 
 [自定义google maps 的infowindow](http://juliana-only.iteye.com/blog/701955)
+
+[Google maps javascript api v3 叠加层（Overlays）介绍](http://www.cnblogs.com/helloj2ee/archive/2013/01/10/2855645.html)
