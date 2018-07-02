@@ -26,3 +26,5 @@
 [google protobuf 反射机制学习笔记](https://blog.csdn.net/boshuzhang/article/details/66969353)
 
 [protobuf之string bytes的区别](https://blog.csdn.net/cscrazybing/article/details/78061475)
+
+[Protobuf 的 proto3 与 proto2 的区别](https://blog.csdn.net/liujiayu2/article/details/77837463)
