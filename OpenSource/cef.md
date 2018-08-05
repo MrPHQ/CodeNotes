@@ -28,3 +28,6 @@
 [在指定的CEF线程上执行任务](https://blog.csdn.net/foruok/article/details/50674141)
 
 [Windows下从源码编译CEF](https://blog.csdn.net/foruok/article/details/50498740)
+
+[编译CEF](https://blog.csdn.net/weolar/article/details/70143256)
+[x](https://note.youdao.com/share/?id=279678779a920fca6f65806bb0226b05&type=note#/)
