@@ -26,3 +26,5 @@
 [Cef功能开发经验](http://www.bubuko.com/infodetail-2023377.html)
 
 [在指定的CEF线程上执行任务](https://blog.csdn.net/foruok/article/details/50674141)
+
+[Windows下从源码编译CEF](https://blog.csdn.net/foruok/article/details/50498740)
